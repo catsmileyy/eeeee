@@ -1,0 +1,18 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0">
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>com.example.HelloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <servlet>
+    <servlet-name>ListUsersServlet</servlet-name>
+    <servlet-class>com.example.ListUsersServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ListUsersServlet</servlet-name>
+    <url-pattern>/list</url-pattern>
+</servlet-mapping>
+</web-app>

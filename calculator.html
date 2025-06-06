@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .calculator {
+        background-color: #fff;
+        padding: 20px 30px;
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    .input-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        justify-content: space-between;
+    }
+
+    .input-row label {
+        margin-right: 10px;
+        font-weight: bold;
+        min-width: 80px;
+        text-align: left;
+    }
+
+    .input-row input[type="number"] {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+
+    .button-group {
+        margin-top: 10px;
+    }
+
+    .calculator button {
+        margin: 5px;
+        padding: 10px 15px;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        background-color: lightskyblue;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="input-row">
+      <label>Number a:</label>
+      <input type="number" id="a">
+    </div>
+    <div class="input-row">
+      <label>Number b:</label>
+      <input type="number" id="b">
+    </div>
+    <div class="result-group">
+        <p id="result">Eq: </p>
+    </div>
+    <div class="button-group">
+      <button onclick="add()">+</button>
+      <button onclick="subtract()">-</button>
+      <button onclick="multiply()">*</button>
+      <button onclick="divide()">/</button>
+      <button onclick="show()">=</button>
+      <button>Exit</button>
+    </div>
+  </div>
+  <script>
+    let result;
+    function add() {
+        const a = parseFloat(document.getElementById("a").value);
+        const b = parseFloat(document.getElementById("b").value);
+        result = a + b;
+    }
+    function subtract() {
+        const a = parseFloat(document.getElementById("a").value);
+        const b = parseFloat(document.getElementById("b").value);
+        result = a - b;
+    }
+    function multiply() {
+        const a = parseFloat(document.getElementById("a").value);
+        const b = parseFloat(document.getElementById("b").value);
+        result = a * b;
+    }
+    function divide() {
+        const a = parseFloat(document.getElementById("a").value);
+        const b = parseFloat(document.getElementById("b").value);
+        if (b == 0)
+        {
+          document.getElementById("result").innerText = "Cannot divide by 0";
+        }
+        else {
+          result = a / b;
+        }
+    }
+    function show() {
+        document.getElementById("result").innerText = "Eq: " + result;
+    }
+  </script>
+</body>
+</html>

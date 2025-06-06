@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Save and Exit</title>
+</head>
+<body>
+  <div style="position: relative; border: 2px solid #1515db; padding: 50px; width: fit-content; margin: 0 auto;">
+    <h1 style="text-align: center;">USE HTML</h1>
+
+    <div style="display: flex; justify-content: space-between; width: 300px;">
+      <b>Name:</b>
+      <input type="text" id="name">
+    </div>
+    <br>
+    <div style="display: flex; justify-content: space-between; width: 300px;">
+      <b>Age:</b>
+      <input type="number" id="age">
+    </div>
+    <br>
+    <div style="display: flex; justify-content: space-between; width: 300px;">
+      <b>Add:</b>
+      <input type="text" id="address">
+    </div>
+
+    <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+      <button onclick="saveThenExit()">Exit</button>
+    </div>
+  </div>
+
+  <script>
+    let exitCount = 0;
+
+    function saveThenExit() {
+      const name = document.getElementById('name').value;
+      const age = document.getElementById('age').value;
+      const address = document.getElementById('address').value;
+      const content = `Name: ${name}\nAge: ${age}\nAddress: ${address}`;
+      const blob = new Blob([content], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'userinfo.txt';
+      link.click();
+
+      exitCount++;
+      if (exitCount >= 2) window.close();
+    }
+  </script>
+</body>
+</html>
